@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# script to import to Slash GraphQL
+
+# get secrets
+. .env
+graphql="https://kindly-death.us-west-2.aws.cloud.dgraph.io/graphql"
+grpc="kindly-death.grpc.us-west-2.aws.cloud.dgraph.io:443"
+
+
+docker run -it --rm -v $(pwd)/tweets.rdf:/tmp/tweets.rdf dgraph/dgraph:v20.07-slash \
+  dgraph live --slash_grpc_endpoint=${grpc} -f /tmp/tweets.rdf -t ${API_TOKEN}

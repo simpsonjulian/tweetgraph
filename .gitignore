@@ -1,0 +1,12 @@
+bin
+doodoo
+help
+include
+lib
+twarc.log
+tweets.jsonl
+tweets.rdf
+.Python
+.idea/
+pip-selfcheck.json
+.env

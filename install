@@ -1,0 +1,30 @@
+  505  ls
+  506  cd devopsdays-slides/
+  507  ls
+  508  cd ..
+  509  pwd
+  510  mkdir tweetgraph
+  511  cd tweetgraph/
+  512  vim requirements.txt
+  513  virtualenv .
+  514  ./bin/pip install -r requirements.txt
+  515  ./bin/twarc configure
+  516  ./bin/twarc configure
+  517  virtualenv help
+  518  virtualenv --clean
+  519  virtualenv clean
+  520  ls
+  521  rm -rf clean 
+  522  virtualenv . clean
+  523  virtualenv --clear .
+  524  virtualenv --clear .
+  525  virtualenv --clear . -p 3.7
+  526  virtualenv --clear . -p 3.8
+  527  virtualenv --clear . -p python3.8
+  528  ./bin/twarc configure
+  529  ./bin/twarc configure
+  530  ./bin/pip3 install -r requirements.txt 
+  531  ./bin/twarc configure
+  532  ./bin/twarc configure
+  533  history 
+  534  history | tail -30 > install
