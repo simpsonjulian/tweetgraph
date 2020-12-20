@@ -10,4 +10,7 @@ tweets.rdf:
 import:
 	./import
 
+upload:
+	./bin/python upload.py
+
 .PHONY: import clean
