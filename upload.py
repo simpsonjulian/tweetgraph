@@ -24,25 +24,29 @@ def upload_to_slash(query):
     return response
 
 
+def sanitise(content):
+    return json.dumps(content.replace('"', '\\"'))
+
+
 def tweet_fragment(user, tweet):
     return '''
-     addTweet(input: {{ content: {}, user: {{ handle: "{}" }} }}) {{
+     addTweet(input: {{ content: {}, user: {{ handle: {} }} }}) {{
         tweet {{
           content
         }}
       }}
-    '''.format(json.dumps(tweet['content']).replace('"', '\\"'), user['handle'])
+    '''.format(sanitise(tweet['content']), sanitise(user['handle']))
 
 
 def get_query(user, tweets):
     query = '''
     mutation addTweets {{
-      addUser(input: {{handle: "{}", screen_name: "{}" }}) {{
+      addUser(input: {{handle: {}, screen_name: {} }}) {{
         user {{
           handle
         }}
       }}
-  '''.format(user['handle'], user['screen_name'])
+  '''.format(sanitise(user['handle']), sanitise(user['screen_name']))
 
     for tweet in tweets:
         query += tweet_fragment(user, tweet)
